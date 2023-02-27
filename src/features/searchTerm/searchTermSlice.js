@@ -11,6 +11,16 @@ export const searchTermReducer = (state = initialState, action) => {
   }
 }
 
+
+// No hay razón por la cual el reducer sea una arrow function y las action creators function declarations. Las dos syntaxis funcionan igual
+// export const setSearchTerm = (term) => {
+//   return {
+//     type: 'searchTerm/setSearchTerm',
+//     payload: term
+//   }
+// }
+
+
 export function setSearchTerm(term) {
   return {
     type: 'searchTerm/setSearchTerm',

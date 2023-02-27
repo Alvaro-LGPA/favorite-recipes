@@ -6,7 +6,13 @@ import { SearchTerm } from '../features/searchTerm/SearchTerm.js';
 import { FavoriteRecipes } from '../features/favoriteRecipes/FavoriteRecipes.js';
 
 export function App(props) {
-  const {state, dispatch} = props;
+  const { state, dispatch } = props;
+
+  /* Utility Helpers */
+
+  function getFilteredRecipes(recipes, searchTerm) {
+    return recipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
 
   const visibleAllRecipes = getFilteredRecipes(state.allRecipes, state.searchTerm);
   const visibleFavoriteRecipes = getFilteredRecipes(state.favoriteRecipes, state.searchTerm);
@@ -32,7 +38,7 @@ export function App(props) {
       <section>
         <h2>All Recipes</h2>
         <AllRecipes
-          allRecipes={visibleAllRecipes} 
+          allRecipes={visibleAllRecipes}
           dispatch={dispatch}
         />
       </section>
@@ -40,8 +46,3 @@ export function App(props) {
   )
 }
 
-/* Utility Helpers */
-
-function getFilteredRecipes(recipes, searchTerm) {
-  return recipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm.toLowerCase()));
-}
