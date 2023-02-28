@@ -13,7 +13,7 @@ export function App(props) {
   function getFilteredRecipes(recipes, searchTerm) {
     return recipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }
-
+  console.log(state)
   const visibleAllRecipes = getFilteredRecipes(state.allRecipes, state.searchTerm);
   const visibleFavoriteRecipes = getFilteredRecipes(state.favoriteRecipes, state.searchTerm);
 

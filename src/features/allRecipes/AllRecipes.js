@@ -11,12 +11,12 @@ export const AllRecipes = (props) => {
   
   const { allRecipes, dispatch } = props;
 
-  const onFirstRender = () => {
-    dispatch(loadData());
+  const onFirstRender = () => { // solo funciona como callback function. Poniendo dispatch(loadData()) como primer argumento de use effect() no funciona. creo que useEffect sôlo acepta como primer argumente una callbackFunction
+    dispatch(loadData()); 
   }
   useEffect(onFirstRender, [dispatch])
   
-  const onAddRecipeHandler = (recipe) => {
+  const onAddRecipeHandler = (recipe) => { // añade receta a favoritos y retira receta de allRecipes. Una acción para dos reducers.
     dispatch(addRecipe(recipe));
   };
 

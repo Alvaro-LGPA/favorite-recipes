@@ -6,7 +6,7 @@ import Recipe from "../../components/Recipe";
 // Import removeRecipe from favoriteRecipesSlice.js
 import { removeRecipe } from './favoriteRecipesSlice.js';
 
-const unfavoriteIconUrl = 'https://static-assets.codecademy.com/Courses/Learn-Redux/Recipes-App/icons/unfavorite.svg'
+const unfavoriteIconUrl = 'https://static-assets.codecademy.com/Courses/Learn-Redux/Recipes-App/icons/unfavorite.svg' 
 
 export const FavoriteRecipes = (props) =>{
   
@@ -18,8 +18,29 @@ export const FavoriteRecipes = (props) =>{
     dispatch(removeRecipe(recipe));
   };
 
+
+  
+return (
+  <div className="recipes-container">
+    {favoriteRecipes.map((recipe) => (
+      <Recipe recipe={recipe} key={recipe.id}>
+        <FavoriteButton
+        onClickHandler={() => onRemoveRecipeHandler(recipe)}
+        icon={unfavoriteIconUrl}
+        >
+        Remove Favorite
+        </FavoriteButton>
+      </Recipe>
+    ))}
+  </div>
+)
+
+};
+
+// todo esto que sigue es una forma diferente de crear las recetas a como se hace en AllRecipes, pero con el mismo resultado. Así que lo he refactorizado para que ambos sean iguales. No tiene sentido que sean diferentes
+
   // Map the recipe objects in favoriteRecipes to render <Recipe /> components.
-  return (
+  /* return (
     <div className="recipes-container">
       {favoriteRecipes.map(createRecipeComponent)}
     </div>
@@ -37,6 +58,4 @@ export const FavoriteRecipes = (props) =>{
         </FavoriteButton>
       </Recipe>
     )
-  }
-  
-};
+  } */
