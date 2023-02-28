@@ -7,7 +7,7 @@ export const loadData = () => {
   }
 }
 
-const initialState = allRecipesData;
+const initialState = allRecipesData; // BRANCH REMOVING USE EFFECT!!: initializing state so useEffect is not needed
 export const allRecipesReducer = (allRecipes = initialState, action) => {
   switch (action.type) {
     case 'allRecipes/loadData': // esto carga todas las recetas en useEffect.

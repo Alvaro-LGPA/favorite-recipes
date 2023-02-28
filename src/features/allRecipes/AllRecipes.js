@@ -11,6 +11,8 @@ export const AllRecipes = (props) => {
   
   const { allRecipes, dispatch } = props;
 
+// BRANC REMOVING-USEEFFECT: Commenting out all useEffect logic since apparently it is not needed if initializing state with allRecipesData
+
   // const onFirstRender = () => { // solo funciona como callback function. Poniendo dispatch(loadData()) como primer argumento de use effect() no funciona. creo que useEffect sôlo acepta como primer argumente una callbackFunction
   //   dispatch(loadData()); 
   // }
