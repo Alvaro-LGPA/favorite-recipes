@@ -7,7 +7,7 @@ export const loadData = () => {
   }
 }
 
-const initialState = [];
+const initialState = allRecipesData;
 export const allRecipesReducer = (allRecipes = initialState, action) => {
   switch (action.type) {
     case 'allRecipes/loadData': // esto carga todas las recetas en useEffect.
