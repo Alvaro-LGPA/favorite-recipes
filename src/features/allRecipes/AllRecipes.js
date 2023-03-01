@@ -1,5 +1,5 @@
 import { addRecipe } from '../favoriteRecipes/favoriteRecipesSlice.js';
-import { loadData } from './allRecipesSlice'
+import { loadData, selectFilteredAllRecipes } from './allRecipesSlice'
 
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
