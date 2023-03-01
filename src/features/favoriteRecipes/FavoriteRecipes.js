@@ -13,7 +13,7 @@ const unfavoriteIconUrl = 'https://static-assets.codecademy.com/Courses/Learn-Re
 export const FavoriteRecipes = (props) =>{
   
 
-  const favoriteRecipes = useSelector(favoriteRecipes)
+  const favoriteRecipes = useSelector(selectFavoriteRecipes)
   const dispatch = useDispatch();
   
   const onRemoveRecipeHandler = (recipe) => {
