@@ -17,6 +17,3 @@ const root = createRoot(container)
     </Provider>
    
   )
-
-store.subscribe(render);
-render();
