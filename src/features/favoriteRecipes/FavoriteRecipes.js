@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { selectFavoriteRecipes } from './favoriteRecipesSlice.js';
+
 import FavoriteButton from "../../components/FavoriteButton";
 import Recipe from "../../components/Recipe";
 
