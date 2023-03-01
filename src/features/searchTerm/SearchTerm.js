@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch} from 'react-redux'
 
 import { setSearchTerm, clearSearchTerm } from './searchTermSlice.js';
 const searchIconUrl = 'https://static-assets.codecademy.com/Courses/Learn-Redux/Recipes-App/icons/search.svg'
