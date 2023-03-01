@@ -2,7 +2,7 @@ import { addRecipe } from '../favoriteRecipes/favoriteRecipesSlice.js';
 import { loadData, selectFilteredAllRecipes } from './allRecipesSlice'
 
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import FavoriteButton from "../../components/FavoriteButton";
 import Recipe from "../../components/Recipe";
@@ -11,9 +11,10 @@ const favoriteIconURL = 'https://static-assets.codecademy.com/Courses/Learn-Redu
 
 export const AllRecipes = (props) => {
   
-  const {dispatch } = props;
+  
 
   const allRecipes = useSelector(selectFilteredAllRecipes)
+  const dispatch = useDispatch();
 
   const onFirstRender = () => { // solo funciona como callback function. Poniendo dispatch(loadData()) como primer argumento de use effect() no funciona. creo que useEffect sôlo acepta como primer argumente una callbackFunction
     dispatch(loadData()); 
