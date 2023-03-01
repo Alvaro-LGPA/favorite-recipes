@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import FavoriteButton from "../../components/FavoriteButton";
 import Recipe from "../../components/Recipe";
 
@@ -10,8 +12,9 @@ const unfavoriteIconUrl = 'https://static-assets.codecademy.com/Courses/Learn-Re
 
 export const FavoriteRecipes = (props) =>{
   
-  // Extract favoriteRecipes and dispatch from props.
-  const { favoriteRecipes, dispatch } = props;
+
+  const favoriteRecipes = useSelector(favoriteRecipes)
+  const dispatch = useDispatch();
   
   const onRemoveRecipeHandler = (recipe) => {
     // Dispatch a removeRecipe() action.
