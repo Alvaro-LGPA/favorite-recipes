@@ -20,3 +20,5 @@ export const allRecipesReducer = (allRecipes = initialState, action) => {
       return allRecipes;
   }
 }
+
+export const selectAllRecipes = state => state.allRecipes;
