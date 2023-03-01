@@ -1,3 +1,5 @@
+import { selectSearchTerm } from "../searchTerm/searchTermSlice";
+
 const initialState = [];
 export const favoriteRecipesReducer = (favoriteRecipes = initialState, action) => {
   switch (action.type) {
