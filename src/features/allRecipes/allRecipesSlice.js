@@ -23,7 +23,7 @@ export const allRecipesReducer = (allRecipes = initialState, action) => {
   }
 }
 
-export const selectAllRecipes = state => state.allRecipes;
+export const selectAllRecipes = state => state.allRecipes; // State es placeholder. Puede llamarse lo que quieras
 
 export const selectFilteredAllRecipes = state => {
   const allRecipes = selectAllRecipes(state);

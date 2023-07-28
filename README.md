@@ -1,8 +1,10 @@
+
+
 # Project: Favorite Recipes
 ## Project description
 **Codecademy** excersise to introduce strategies for managing complex state in React applications using Redux
 
-
+# Part I
 #### Instructions
 1. In the **store.js** file, begin by declaring a new variable called `initialState` and assign to it an empty object.
 2. Now let’s add slices to the `initialState` object.
@@ -178,3 +180,79 @@ At the top of **FavoriteRecipes.js**, import the action creator function, `remov
 
 6. Finally, the `removeRecipe()` action creator accepts a `recipe` argument.
 Within `onRemoveRecipeHandler()`, which receives a `recipe` parameter, dispatch a `removeRecipe()` action with `recipe` as an argument.
+
+# Part II
+
+Before continuing you should note the application’s current functionality that will be replaced in the following exercises:
+
+* Calling `ReactDOM.render()` using `render()`.
+* Passing `store.getState()` through `<App>` component props.
+* Passing `store.dispatch` through `<App>` component props.
+* Subscribing `render()` to the Redux store so it is called after state updates.
+* Using the `props` parameter in **App.js** to pass data through the component, also known as **props drilling**.
+
+
+#### Instructions
+1. Before you can use the `<Provider>` component you must import it.
+In the **index.js** file, create an import statement that retrieves the `Provider` component from `react-redux`.
+2. The next step is to insert the `<Provider>` component into the recipe application.
+Inside `ReactDOM.render()`, wrap the top level component, `<App>` with the `<Provider>` component.
+3. With the `<App>` component now nested inside the `<Provider>` component, pass the imported Redux store through the `<Provider>` component store prop.
+This begins the process of accessing data throughout the application components but you must do a couple more things to see any progress.
+
+#### Instructions
+
+1. First, you need to implement the `selectAllRecipes` selector.
+Towards the bottom of **allRecipesSlice.js**, implement `selectAllRecipes` and test the code:
+   1. Start with an x statement
+   2. Define `selectAllRecipes` with `state` as the only argument
+   3. Return the allRecipes piece of the `state`
+
+    > State es un placeholder. Puede llamarse como quieras
+1. You can now implement a new selector that retrieves the recipes based on the `searchTerm` in the `state`.
+Below the `selectAllRecipes` selector:
+    1. Start with an `export` statement
+    1. Define `selectFilteredAllRecipes` with `state` as the only argument
+
+1. You will use the `selectAllRecipes` and `selectSearchTerm` to retrieve data for `selectFilteredAllRecipes`.
+Inside the function body of `selectFilteredAllRecipes`, create two variables:
+    * `allRecipes` and assign the return value of `selectAllRecipes(state)`
+    * `searchTerm` and assign the return value of `selectSearchTerm(state)`
+
+4. Now you have an array of the recipes in `allrecipes` and the current search term string in `searchTerm`. To get a filtered list of recipes based on the search term you will use the JavaScript array `filter()` method.
+Inside `selectFilteredAllRecipes`, call `allRecipes.filter()` with the following callback function as the argument:
+    ```
+    recipe => recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
+    ```
+        Then, return the result.
+
+Selectors can be simple or complex. All are an important step to accessing the Redux store data within components.
+
+#### Instructions
+
+1. To access Redux store data with `useSelector()`, you first need to import it from react-redux.
+In **AllRecipes.js** import `useSelector` from `react-redux`.
+
+2. Along with `useSelector()` you need access to the `selectFilteredAllRecipes` selector defined in the previous exercise.
+In **AllRecipes.js** add `selectFilteredAllRecipes` to the **allRecipesSlice.js** import statement.
+3. With both import statements complete, you are now able to access the data using the selector function and `useSelector()`.
+Inside the `AllRecipes()` component function:
+    1. Define a variable `allRecipes`.
+    1. Assign it the value returned by `useSelector()`.
+    1. Pass selectFilteredAllRecipes to `useSelector()`.
+
+    In this exercise, the data was initialized with recipes so when you run the code you should see the recipe data rendered in the browser.
+
+#### Instructions
+
+1. In **AllRecipes.js:**
+    * Add `useDispatch` to the `react-redux` import statement.
+    * Create a variable `dispatch` inside the All`Recipes component and assign it the reference returned by `useDispatch()`.
+
+2. In **FavoriteRecipes.js**, `useDispatch` has been added to the import statement and the `dispatch` reference has been defined. Use `dispatch` to dispatch the action inside one of the handler functions.
+
+Inside the `onRemoveRecipeHandler` function:
+
+   * Dispatch an action using `dispatch()`
+   * Pass the `removeRecipe()` action creator to `dispatch()`.
+   * Pass `recipe` to the action creator.
