@@ -9,7 +9,7 @@ import Recipe from "../../components/Recipe";
 
 const favoriteIconURL = 'https://static-assets.codecademy.com/Courses/Learn-Redux/Recipes-App/icons/favorite.svg'
 
-export const AllRecipes = (props) => {
+export const AllRecipes = () => {
   
   
 
